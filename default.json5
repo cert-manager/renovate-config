@@ -1,0 +1,122 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  gitAuthor: 'Renovate Bot <renovate-bot@users.noreply.github.com>',
+  gitIgnoredAuthors: [
+    '157150467+octo-sts[bot]@users.noreply.github.com',
+  ],
+  extends: [
+    'config:best-practices',
+    ':gitSignOff',
+    ':semanticCommits',
+    ':disableVulnerabilityAlerts',
+  ],
+  timezone: 'Europe/London',
+  // packageRules uses globs for matchPackageNames. Some packages have a separate major version i.e. /v on them which is when we would need package**/**.
+  packageRules: [
+    {
+      groupName: 'Misc GitHub actions',
+      matchManagers: [
+        'github-actions',
+      ],
+    },
+    {
+      groupName: 'Misc Go deps',
+      matchManagers: [
+        'gomod',
+      ],
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+      ],
+    },
+    {
+      groupName: 'Cloud Go deps',
+      matchManagers: [
+        'gomod',
+      ],
+      matchPackageNames: [
+        'github.com/akamai/**',
+        'github.com/aws/**',
+        'github.com/Azure/**',
+        'github.com/AzureAD/**',
+        'github.com/cloudflare/**',
+        'github.com/digitalocean/**',
+        'google.golang.org/api',
+      ],
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+      ]
+    },
+    {
+      groupName: 'Kubernetes Go deps',
+      matchManagers: [
+        'gomod',
+      ],
+      matchPackageNames: [
+        'sigs.k8s.io/**',
+        'k8s.io/**',
+      ],
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+      ]
+    },
+    {
+      groupName: 'Kubernetes Go patches',
+      matchManagers: [
+        'gomod',
+      ],
+      matchPackageNames: [
+        'k8s.io/**',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      addLabels: [
+        'skip-review', // Adding label to allow PRs to automerge
+      ]
+    },
+    {
+      groupName: 'golang.org/x deps',
+      matchManagers: [
+        'gomod',
+      ],
+      matchPackageNames: [
+        'golang.org/x/**',
+      ],
+      addLabels: [
+        'skip-review', // Adding label to allow PRs to automerge
+      ],
+    },
+    {
+      matchManagers: [
+        'gomod',
+      ],
+      matchUpdateTypes: [
+        'major',
+        'digest',
+      ],
+      dependencyDashboardApproval: true
+    },
+    {
+      description: 'Disable (internal) cert-manager pseudo-version updates',
+      matchManagers: [
+        'gomod',
+      ],
+      matchPackageNames: [
+        'github.com/cert-manager/**',
+      ],
+      matchCurrentValue: 'v0.0.0*',
+      enabled: false,
+    },
+  ],
+  ignorePaths: [
+    '**/vendor/**',
+    // Exclude files that are mastered from makefile-modules and shouldn't be upgraded in projects using makefile-modules.
+    'make/_shared/**',
+    '.github/workflows/govulncheck.yaml',
+    '.github/workflows/make-self-upgrade.yaml',
+    '.github/workflows/renovate.yaml',
+  ],
+}
