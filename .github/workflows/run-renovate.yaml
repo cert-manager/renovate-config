@@ -1,0 +1,33 @@
+name: Run Renovate
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 8 * * 6' # weekly; 08:00 at Saturday
+
+permissions:
+  contents: read
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Octo STS Token Exchange
+        uses: octo-sts/action@e480437973a6f6ac2e9caa40ecabedc870d76395 # v1.0.1
+        id: octo-sts
+        with:
+          scope: cert-manager/makefile-modules
+          identity: renovate
+
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          token: ${{ steps.octo-sts.outputs.token }}
+
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@7876d7a812254599d262d62b6b2c2706018258a2 # v43.0.10
+        with:
+          configurationFile: ./.github/renovate.json5
+          token: ${{ steps.octo-sts.outputs.token }}
