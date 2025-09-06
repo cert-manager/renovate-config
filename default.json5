@@ -100,6 +100,12 @@
       dependencyDashboardApproval: true
     },
     {
+      matchPackageNames: [
+        'renovate/renovate',
+      ],
+      dependencyDashboardApproval: true,
+    },
+    {
       description: 'Disable (internal) cert-manager pseudo-version updates',
       matchManagers: [
         'gomod',
