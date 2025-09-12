@@ -6,9 +6,11 @@
   ],
   extends: [
     'config:best-practices',
+    'customManagers:githubActionsVersions',
     ':gitSignOff',
     ':semanticCommits',
     ':disableVulnerabilityAlerts',
+    ':disableRateLimiting',
   ],
   timezone: 'Europe/London',
   // packageRules uses globs for matchPackageNames. Some packages have a separate major version i.e. /v on them which is when we would need package**/**.
@@ -98,6 +100,14 @@
         'digest',
       ],
       dependencyDashboardApproval: true
+    },
+    {
+      matchManagers: [
+        'gomod',
+      ],
+      postUpdateOptions: [
+        'gomodTidy',
+      ],
     },
     {
       matchPackageNames: [
