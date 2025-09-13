@@ -122,6 +122,17 @@
       dependencyDashboardApproval: true,
     },
     {
+      matchFileNames: [
+        'deploy/charts/**/values.yaml',
+      ],
+      postUpgradeTasks: {
+        commands: [
+          'make generate-helm-docs',
+        ],
+        executionMode: 'branch',
+      },
+    },
+    {
       description: 'Disable (internal) cert-manager pseudo-version updates',
       matchManagers: [
         'gomod',
