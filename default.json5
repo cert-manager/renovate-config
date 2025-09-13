@@ -110,6 +110,8 @@
       ],
     },
     {
+      // Set groupName to null to avoid this dependency from being included in the misc GHA group above.
+      groupName: null,
       matchPackageNames: [
         'renovate/renovate',
       ],
