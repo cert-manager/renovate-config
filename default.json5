@@ -13,6 +13,10 @@
     ':disableRateLimiting',
   ],
   timezone: 'Europe/London',
+  labels: [
+    'dependencies',
+    'ok-to-test',
+  ],
   // packageRules uses globs for matchPackageNames. Some packages have a separate major version i.e. /v on them which is when we would need package**/**.
   packageRules: [
     {
