@@ -127,7 +127,7 @@
       ],
       postUpgradeTasks: {
         commands: [
-          'make generate-helm-docs',
+          'make vendor-go generate-helm-docs',
         ],
         executionMode: 'branch',
       },
