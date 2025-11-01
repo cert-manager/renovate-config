@@ -96,6 +96,19 @@
       ],
     },
     {
+      groupName: 'github.com/onsi deps',
+      matchManagers: [
+        'gomod',
+      ],
+      matchPackageNames: [
+        'github.com/onsi/gomega',
+        'github.com/onsi/ginkgo/v2',
+      ],
+      addLabels: [
+        'skip-review', // Adding label to allow PRs to automerge
+      ],
+    },
+    {
       matchManagers: [
         'gomod',
       ],
