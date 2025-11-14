@@ -20,6 +20,20 @@
   // packageRules uses globs for matchPackageNames. Some packages have a separate major version i.e. /v on them which is when we would need package**/**.
   packageRules: [
     {
+      matchManagers: [
+        'gomod',
+      ],
+      matchPackageNames: [
+        'sigs.k8s.io/controller-runtime',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      addLabels: [
+        'skip-review', // Adding label to allow PRs to automerge
+      ]
+    },
+    {
       groupName: 'Misc GitHub actions',
       matchManagers: [
         'github-actions',
