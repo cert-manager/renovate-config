@@ -1,0 +1,7 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "This configuration exists to support onboarding. Any functional configuration should go in the default.json5 file.",
+  "extends": [
+    "github>cert-manager/renovate-config:default.json5"
+  ]
+}
