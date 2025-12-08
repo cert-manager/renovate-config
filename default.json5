@@ -9,8 +9,8 @@
     'customManagers:githubActionsVersions',
     ':gitSignOff',
     ':semanticCommits',
-    ':disableVulnerabilityAlerts',
-    ':disableRateLimiting',
+    ':enableVulnerabilityAlerts',
+    'mergeConfidence:all-badges',
   ],
   timezone: 'Europe/London',
   labels: [
