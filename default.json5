@@ -24,6 +24,7 @@
         'gomod',
       ],
       postUpdateOptions: [
+        'gomodMassage',
         'gomodTidy',
         'gomodUpdateImportPaths',
       ]
