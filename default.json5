@@ -78,6 +78,12 @@
       ]
     },
     {
+      groupName: 'Google Cloud Builders',
+      matchPackageNames: [
+        'gcr.io/cloud-builders/**',
+      ]
+    },
+    {
       groupName: 'Kubernetes Go deps',
       matchManagers: [
         'gomod',
