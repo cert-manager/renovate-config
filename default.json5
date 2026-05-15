@@ -17,6 +17,7 @@
     'dependencies',
     'ok-to-test',
   ],
+  osvVulnerabilityAlerts: true,
   // packageRules uses globs for matchPackageNames. Some packages have a separate major version i.e. /v on them which is when we would need package**/**.
   packageRules: [
     {
