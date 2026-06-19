@@ -57,8 +57,16 @@
       ],
     },
     {
+      description: 'Group and auto-merge GCB updates',
       groupName: 'Google Cloud Builders',
       matchPackageNames: ['gcr.io/cloud-builders/**'],
+      addLabels: ['skip-review'] // Adding label to allow PRs to automerge
+    },
+    {
+      description: 'Group and auto-merge distroless image updates',
+      groupName: 'Distroless images',
+      matchPackageNames: ['gcr.io/distroless/**'],
+      addLabels: ['skip-review'] // Adding label to allow PRs to automerge
     },
     {
       groupName: 'Kubernetes Go deps',
