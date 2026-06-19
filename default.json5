@@ -21,39 +21,19 @@
   // packageRules uses globs for matchPackageNames. Some packages have a separate major version i.e. /v on them which is when we would need package**/**.
   packageRules: [
     {
-      matchManagers: [
-        'gomod',
-      ],
+      matchManagers: ['gomod'],
       postUpdateOptions: [
         'gomodTidy',
         'gomodUpdateImportPaths',
-      ]
-    },
-    {
-      matchManagers: [
-        'gomod',
       ],
-      matchPackageNames: [
-        'sigs.k8s.io/controller-runtime',
-      ],
-      matchUpdateTypes: [
-        'patch',
-      ],
-      addLabels: [
-        'skip-review', // Adding label to allow PRs to automerge
-      ]
     },
     {
       groupName: 'Misc GitHub actions',
-      matchManagers: [
-        'github-actions',
-      ],
+      matchManagers: ['github-actions'],
     },
     {
       groupName: 'Misc Go deps',
-      matchManagers: [
-        'gomod',
-      ],
+      matchManagers: ['gomod'],
       matchUpdateTypes: [
         'minor',
         'patch',
@@ -61,9 +41,7 @@
     },
     {
       groupName: 'Cloud Go deps',
-      matchManagers: [
-        'gomod',
-      ],
+      matchManagers: ['gomod'],
       matchPackageNames: [
         'github.com/akamai/**',
         'github.com/aws/**',
@@ -76,72 +54,49 @@
       matchUpdateTypes: [
         'minor',
         'patch',
-      ]
+      ],
     },
     {
       groupName: 'Google Cloud Builders',
-      matchPackageNames: [
-        'gcr.io/cloud-builders/**',
-      ]
+      matchPackageNames: ['gcr.io/cloud-builders/**'],
     },
     {
       groupName: 'Kubernetes Go deps',
-      matchManagers: [
-        'gomod',
-      ],
+      matchManagers: ['gomod'],
       matchPackageNames: [
-        'sigs.k8s.io/**',
         'k8s.io/**',
+        'sigs.k8s.io/**'
       ],
-      matchUpdateTypes: [
-        'minor',
-        'patch',
-      ]
+      matchUpdateTypes: ['minor'],
     },
     {
       groupName: 'Kubernetes Go patches',
-      matchManagers: [
-        'gomod',
-      ],
+      matchManagers: ['gomod'],
       matchPackageNames: [
         'k8s.io/**',
+        'sigs.k8s.io/**'
       ],
-      matchUpdateTypes: [
-        'patch',
-      ],
-      addLabels: [
-        'skip-review', // Adding label to allow PRs to automerge
-      ]
+      matchUpdateTypes: ['patch'],
+      addLabels: ['skip-review'], // Adding label to allow PRs to automerge
     },
     {
       groupName: 'golang.org/x deps',
-      matchManagers: [
-        'gomod',
-      ],
-      matchPackageNames: [
-        'golang.org/x/**',
-      ],
-      addLabels: [
-        'skip-review', // Adding label to allow PRs to automerge
-      ],
+      matchManagers: ['gomod'],
+      matchPackageNames: ['golang.org/x/**'],
+      addLabels: ['skip-review'], // Adding label to allow PRs to automerge
     },
     {
       groupName: 'github.com/onsi deps',
-      matchManagers: [
-        'gomod',
-      ],
+      matchManagers: ['gomod'],
       matchPackageNames: [
         'github.com/onsi/gomega',
         'github.com/onsi/ginkgo/v2',
       ],
-      addLabels: [
-        'skip-review', // Adding label to allow PRs to automerge
-      ],
+      addLabels: ['skip-review'], // Adding label to allow PRs to automerge
     },
     {
-      matchManagers: [
-        'gomod',
-      ],
+      groupName: null,
+      matchManagers: ['gomod'],
       matchUpdateTypes: [
         'major',
         'digest',
@@ -149,21 +104,15 @@
       dependencyDashboardApproval: true
     },
     {
-      // Set groupName to null to avoid this dependency from being included in the misc GHA group above.
       groupName: null,
-      matchPackageNames: [
-        'renovate/renovate',
-      ],
+      matchPackageNames: ['renovate/renovate'],
       dependencyDashboardApproval: true,
     },
     {
+      groupName: null,
       description: 'Disable (internal) cert-manager pseudo-version updates',
-      matchManagers: [
-        'gomod',
-      ],
-      matchPackageNames: [
-        'github.com/cert-manager/**',
-      ],
+      matchManagers: ['gomod'],
+      matchPackageNames: ['github.com/cert-manager/**'],
       matchCurrentValue: 'v0.0.0*',
       enabled: false,
     },
