@@ -13,6 +13,7 @@
     'mergeConfidence:all-badges',
   ],
   timezone: 'Europe/London',
+  minimumReleaseAge: '3 days',
   labels: [
     'dependencies',
     'ok-to-test',
