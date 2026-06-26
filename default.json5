@@ -118,6 +118,12 @@
       dependencyDashboardApproval: true,
     },
     {
+      description: 'Disable minimum release age and auto-merge for selective dependencies',
+      matchPackageNames: ['github.com/cert-manager/**'],
+      minimumReleaseAge: null,
+      addLabels: ['skip-review'], // Adding label to allow PRs to automerge
+    },
+    {
       groupName: null,
       description: 'Disable (internal) cert-manager pseudo-version updates',
       matchManagers: ['gomod'],
