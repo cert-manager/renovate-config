@@ -14,6 +14,9 @@
   ],
   timezone: 'Europe/London',
   minimumReleaseAge: '3 days',
+  statusCheckWhen: {
+    minimumReleaseAge: 'never', // To avoid blocking renovate/stability-days GH workflows.
+  },
   labels: [
     'dependencies',
     'ok-to-test',
