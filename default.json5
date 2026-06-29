@@ -118,7 +118,12 @@
       dependencyDashboardApproval: true,
     },
     {
-      description: 'Disable minimum release age and auto-merge for selective dependencies',
+      description: 'Enable auto-merge for selective dependencies',
+      matchPackageNames: ['docker.io/library/golang'],
+      addLabels: ['skip-review'], // Adding label to allow PRs to automerge
+    },
+    {
+      description: 'Disable minimum release age and enable auto-merge for selective dependencies',
       matchPackageNames: ['github.com/cert-manager/**'],
       minimumReleaseAge: null,
       addLabels: ['skip-review'], // Adding label to allow PRs to automerge
