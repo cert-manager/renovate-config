@@ -14,7 +14,7 @@ jobs:
       image: renovate/renovate:43.249.7@sha256:849d7df7aff9c08863b9f953c69c8296fc49c1cf66a1bc13eee5003be9203390
       options: --user root
     steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: renovate --version
       - run: renovate-config-validator default.json5
       - run: renovate-config-validator .github/renovate.json5
