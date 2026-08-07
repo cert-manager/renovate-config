@@ -9,7 +9,7 @@
     'customManagers:githubActionsVersions',
     ':gitSignOff',
     ':semanticCommits',
-    ':enableVulnerabilityAlerts',
+    'security:gomodIndirectSecurityUpdates',
     'mergeConfidence:all-badges',
   ],
   timezone: 'Europe/London',
