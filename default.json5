@@ -1,9 +1,9 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  // Must match the author the Renovate GitHub App actually commits with,
-  // otherwise Renovate mistakes its own stale branches for manually edited
-  // ones and blocks them ("PR Edited (Blocked)" on the dependency dashboard).
-  gitAuthor: 'renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>',
+  // gitAuthor is deliberately unset so Renovate discovers its own commit
+  // identity from its platform credentials. A hard-coded value that does not
+  // match the app's real identity makes Renovate mistake its own branches for
+  // manually edited ones ("PR Edited (Blocked)" on the dependency dashboard).
   gitIgnoredAuthors: [
     '157150467+octo-sts[bot]@users.noreply.github.com',
   ],
