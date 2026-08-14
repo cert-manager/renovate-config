@@ -129,6 +129,11 @@
       addLabels: ['skip-review'], // Adding label to allow PRs to automerge
     },
     {
+      description: 'Disable minimum release age for Go upgrades',
+      matchDatasources: ['golang-version'],
+      minimumReleaseAge: null,
+    },
+    {
       description: 'Disable minimum release age and enable auto-merge for selective dependencies',
       matchPackageNames: ['github.com/cert-manager/**'],
       minimumReleaseAge: null,
