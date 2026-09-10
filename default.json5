@@ -17,6 +17,7 @@
   ],
   timezone: 'Europe/London',
   minimumReleaseAge: '3 days',
+  minimumReleaseAgeBehaviour: 'timestamp-optional',
   statusCheckWhen: {
     minimumReleaseAge: 'never', // To avoid blocking renovate/stability-days GH workflows.
   },
