@@ -134,6 +134,17 @@
       minimumReleaseAge: null,
     },
     {
+      // Renovate only knows a release timestamp for images on Docker Hub. For
+      // other registries (gcr.io distroless base images, cloud-builders,
+      // cr.kgateway.dev) a digest update has no timestamp, and since
+      // renovatebot/renovate#44965 an update without a timestamp never passes
+      // minimumReleaseAge, so the PR is never created.
+      description: 'Do not require a release timestamp for image digest updates',
+      matchDatasources: ['docker'],
+      matchUpdateTypes: ['digest', 'pinDigest'],
+      minimumReleaseAgeBehaviour: 'timestamp-optional',
+    },
+    {
       description: 'Disable minimum release age and enable auto-merge for selective dependencies',
       matchPackageNames: ['github.com/cert-manager/**'],
       minimumReleaseAge: null,
